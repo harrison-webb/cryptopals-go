@@ -1,16 +1,19 @@
 package set1
 
 func hexToBase64(hex []byte) []byte {
-	for i, symbol := range hex {
-		var decimalVal int
-		if symbol < 5 {
-
-		}
+	var binary []int
+	for _, symbol := range hex {
+		// convert hex symbol to binary and add it to the 'binary' array
+		binary = append(binary, charToBinary(symbol)...)
 	}
 
+	// now the entire input hex string is represented as binary and can be converted to base 64
+	for i := 0; i < len(binary); i += 6 {
+		// loop over 'binary' array 6 bits at a time (base64 symbols are represented with 6 bits)
+	}
 }
 
-func charToBinary(char byte) (s string) {
+func charToBinary(char byte) []int {
 	var decimal int
 	if isDigit(char) {
 		decimal = int(char) - 48
