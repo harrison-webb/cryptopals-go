@@ -4,7 +4,7 @@ func hexToBase64(hex []byte) []byte {
 	var binary []int
 	for _, symbol := range hex {
 		// convert hex symbol to binary and add it to the 'binary' array
-		binary = append(binary, charToBinary(symbol)...)
+		binary = append(binary, hexCharToBinary(symbol)...)
 	}
 
 	var base64 []byte
@@ -18,7 +18,7 @@ func hexToBase64(hex []byte) []byte {
 	return base64
 }
 
-func charToBinary(char byte) []int {
+func hexCharToBinary(char byte) []int {
 	var decimal int
 	if isDigit(char) {
 		decimal = int(char) - 48
